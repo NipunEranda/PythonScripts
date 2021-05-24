@@ -7,7 +7,7 @@ id = Idcreater()
 id.enterFields()
 id.initiate()
 
-if id.choice == 1:
+if id.choice == "1":
     rc = ResultChecker(id.oldNic)
 else:
     rc = ResultChecker(id.newNic)

